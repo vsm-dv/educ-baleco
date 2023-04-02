@@ -1,0 +1,30 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input {
+  all: unset;
+  box-sizing: border-box;
+  outline: 1.8px solid #a2a2a2;
+  border-radius: 4px;
+  width: 60px;
+  height: 30px;
+  text-align: right;
+  padding-right: 8px;
+}
+
+input:focus {
+  border: 2px solid #99a240;
+  outline: 0.5px solid #99a240;
+}
+
+input:hover {
+  outline: 0.5px solid #99a240;
+  border: 2px solid #99a240;
+}
