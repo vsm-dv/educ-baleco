@@ -3,7 +3,6 @@ import './App.css';
 import footerImg from './assets/Assinatura_H_Cor_PERIODO_ELEITORAL.png';
 import headerImg from './assets/educ_classroom_HEADER.png';
 import MainTable from './components/MainTable';
-import { TetraPakTable } from './components/TetraPakTable';
 
 function App() {
   return (
@@ -18,27 +17,26 @@ function App() {
           </Typography>
           <Typography color="inherit" variant="body1" textAlign="justify" sx={{ lineHeight: '26px', fontSize: '16px' }}>
             <p style={{ marginBottom: '20px' }}>
-              O Balanço Ecológico, ou, BALECO, é uma tecnologia Social desenvolvida pela ONG Guardiões do Mar, e tem por objetivo principal apresentar de forma simples a diminuição dos impactos
-              ambientais alcançadas quando reciclamos os resíduos sólidos.
+              O Balanço Ecológico, ou BALECO, é uma tecnologia Social desenvolvida pela ONG Guardiões do Mar, e tem por objetivo principal apresentar de forma simples a diminuição dos impactos
+              ambientais alcançada quando reciclamos os resíduos sólidos.
             </p>
             <p style={{ marginBottom: '20px' }}>
-              No Projeto EDUC, tanto na fase I, quanto na Fase II, o BALECO foi e vem sendo empregado, apresentando didaticamente, à população, os resultados da coleta seletiva e encaminhamento dos
+              No Projeto EDUC, tanto na Fase I, quanto na Fase II, o BALECO foi e vem sendo empregado, apresentando didaticamente à população, os resultados da coleta seletiva e encaminhamento dos
               resíduos para a reciclagem.
             </p>
             <p>
-              É muito fácil saber qual o resultado do seu BALECO, basta lançar os valores alcançados com a separação dos resíduos sólidos nas tabelas abaixo, e descobrir qual foi a sua contribuição
-              para a conservação do planeta Terra:
+              É muito fácil saber qual o resultado do seu BALECO, basta lançar os valores alcançados com a separação dos resíduos sólidos na tabela abaixo, e descobrir qual foi a sua contribuição para
+              a conservação do planeta Terra:
             </p>
           </Typography>
         </div>
 
         <div className="tablesDiv">
           <MainTable />
-          <TetraPakTable />
         </div>
         <div style={{ marginTop: '30px', width: '59%' }}>
           <Typography variant="body1" sx={{ marginBottom: '30px' }}>
-            Compartilhe o resultado do seu BALECO conosco através do <a href="https://www.instagram.com/projetoeducoficial/">@projetoeducoficial</a>
+            Tire um print e compartilhe o resultado do seu BALECO conosco através do nosso Instagram <a href="https://www.instagram.com/projetoeducoficial/">@projetoeducoficial</a>
           </Typography>
         </div>
         <footer>

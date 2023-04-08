@@ -43,7 +43,7 @@ header {
   padding-right: 65px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 10px;
   justify-content: center;
   align-items: center;
   white-space: nowrap;
@@ -52,10 +52,12 @@ header {
 a {
   all: unset;
   cursor: pointer;
+  color: rgb(84, 8, 84);
 }
 
 a:hover {
   color: purple;
+  opacity: 0.8;
 }
 
 footer {

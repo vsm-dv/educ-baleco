@@ -1,4 +1,3 @@
-import { Toolbar, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,19 +6,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableFooter from '@mui/material/TableFooter';
 import TableRow from '@mui/material/TableRow';
 import { useEffect, useState } from 'react';
+import { TableToolbar } from '../MainTable';
 
 function createData(name: string, value: number | null) {
   return { name, value };
-}
-
-export function TableToolbar(props: { title: string }) {
-  return (
-    <Toolbar sx={{ backgroundColor: '#acacac' }}>
-      <Typography sx={{ flex: '1 1 100%', fontWeight: '500' }} color="inherit" variant="subtitle1" component="div">
-        {props.title}
-      </Typography>
-    </Toolbar>
-  );
 }
 
 export function TetraPakTable() {
@@ -71,7 +61,7 @@ export function TetraPakTable() {
   ];
 
   return (
-    <TableContainer component={Paper} sx={{ minWidth: '200px', maxWidth: '45%', border: '1px solid black', backgroundColor: '#acacac' }}>
+    <TableContainer component={Paper} sx={{ minWidth: '200px', maxWidth: '45%', border: '1px solid black', backgroundColor: '#a2a2a2' }}>
       <TableToolbar title={'TetraPak'} />
       <Table aria-label="table">
         <TableBody>

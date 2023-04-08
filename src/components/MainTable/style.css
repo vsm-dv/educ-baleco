@@ -4,14 +4,10 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type='number'] {
-  -moz-appearance: textfield;
-}
-
 input {
   all: unset;
   box-sizing: border-box;
-  outline: 1.8px solid #a2a2a2;
+  outline: 1.8px solid #00000083;
   border-radius: 4px;
   width: 60px;
   height: 30px;
@@ -27,4 +23,10 @@ input:focus {
 input:hover {
   outline: 0.5px solid #99a240;
   border: 2px solid #99a240;
+}
+
+.tableCell {
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 100px;
 }
