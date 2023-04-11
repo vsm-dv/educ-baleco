@@ -192,111 +192,108 @@ export default function MainTable() {
   ];
 
   return (
-    <>
-      <TableContainer component={Paper} style={{ border: '1px solid black', backgroundColor: '#a2a2a2' }}>
-        <TableToolbar title={'Balanço ecológico tabela base'} />
-        <Table aria-label="simple table">
-          <TableHead sx={{ backgroundColor: '#a2a2a2' }}>
-            <TableRow>
-              <TableCell size="small" className="tableCell">
-                Material
+    <TableContainer component={Paper} style={{ border: '1px solid black', backgroundColor: '#a2a2a2' }}>
+      <TableToolbar title={'Balanço ecológico tabela base'} />
+      <Table aria-label="simple table">
+        <TableHead sx={{ backgroundColor: '#a2a2a2' }}>
+          <TableRow>
+            <TableCell size="small" className="tableCell">
+              Material
+            </TableCell>
+            <TableCell size="small" className="tableCell" align="center">
+              Unidades
+            </TableCell>
+            <TableCell size="small" className="tableCell" align="center">
+              Peso (kg)
+            </TableCell>
+            <TableCell size="small" className="tableCell" align="center">
+              Bauxita (kg)
+            </TableCell>
+            <TableCell size="small" className="tableCell" align="center">
+              Energia (kw)
+            </TableCell>
+            <TableCell size="small" className="tableCell" align="center">
+              Árvore (unidade)
+            </TableCell>
+            <TableCell size="small" className="tableCell" align="center">
+              CO² (kg)
+            </TableCell>
+            <TableCell size="small" className="tableCell" align="center">
+              Água (L)
+            </TableCell>
+            <TableCell size="small" className="tableCell" align="center">
+              Areia (kg)
+            </TableCell>
+            <TableCell size="small" className="tableCell" align="center">
+              Petróleo (kg)
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody sx={{ background: `url(${logo})`, backgroundColor: '#d3d3d3', backgroundSize: '60%', backgroundRepeat: 'no-repeat', backgroundPositionX: 'center' }}>
+          {rows.map((row) => (
+            <TableRow
+              key={row.material}
+              sx={{
+                '&:last-child td, &:last-child th': { border: 0 },
+                background: `${row.material === 'total' && '#acacac'}`,
+              }}
+            >
+              <TableCell component="th" scope="row">
+                {row.name}
               </TableCell>
-              <TableCell size="small" className="tableCell" align="center">
-                Unidades
+              <TableCell align="center" sx={{ fontWeight: '500' }}>
+                {row.material === 'total' ? (
+                  row.count.toFixed(2)
+                ) : noUnitInput.includes(row.material) ? (
+                  '-'
+                ) : (
+                  <input
+                    type="string"
+                    name={`${row.material}-count`}
+                    onChange={(event) =>
+                      !isNaN(Number(event.target.value.replace(',', '.'))) ? setInputValue(row.material, event.target.value) : setInputValue(row.material, (event.target.value = ''))
+                    }
+                  />
+                )}
               </TableCell>
-              <TableCell size="small" className="tableCell" align="center">
-                Peso (kg)
+              <TableCell align="center" sx={{ fontWeight: '500' }}>
+                {[...noWeightInput, 'total'].includes(row.material) ? (
+                  row.weight.toFixed(2)
+                ) : (
+                  <input
+                    type="string"
+                    name={`${row.material}-weight`}
+                    onChange={(event) =>
+                      !isNaN(Number(event.target.value.replace(',', '.'))) ? setInputValue(row.material, event.target.value) : setInputValue(row.material, (event.target.value = ''))
+                    }
+                  />
+                )}
               </TableCell>
-              <TableCell size="small" className="tableCell" align="center">
-                Bauxita (kg)
+              <TableCell align="center" sx={{ fontWeight: '500' }}>
+                {row.bauxite === 0 ? row.bauxite : row.bauxite.toFixed(2)}
               </TableCell>
-              <TableCell size="small" className="tableCell" align="center">
-                Energia (kw)
+              <TableCell align="center" sx={{ fontWeight: '500' }}>
+                {row.energy?.toFixed(2) ?? '-'}
               </TableCell>
-              <TableCell size="small" className="tableCell" align="center">
-                Árvore (unidade)
+              <TableCell align="center" sx={{ fontWeight: '500' }}>
+                {(row.trees === 0 ? row.trees : row.trees?.toFixed(2)) ?? '-'}
               </TableCell>
-              <TableCell size="small" className="tableCell" align="center">
-                CO² (kg)
+              <TableCell align="center" sx={{ fontWeight: '500' }}>
+                {row.carbon?.toFixed(2) ?? '-'}
               </TableCell>
-              <TableCell size="small" className="tableCell" align="center">
-                Água (L)
+              <TableCell align="center" sx={{ fontWeight: '500' }}>
+                {row.water?.toFixed(2) ?? '-'}
               </TableCell>
-              <TableCell size="small" className="tableCell" align="center">
-                Areia (kg)
+              <TableCell align="center" sx={{ fontWeight: '500' }}>
+                {row.sand?.toFixed(2) ?? '-'}
               </TableCell>
-              <TableCell size="small" className="tableCell" align="center">
-                Petróleo (kg)
+              <TableCell align="center" sx={{ fontWeight: '500' }}>
+                {row.oil?.toFixed(2) ?? '-'}
               </TableCell>
             </TableRow>
-          </TableHead>
-          <TableBody sx={{ background: `url(${logo})`, backgroundColor: '#d3d3d3', backgroundSize: '60%', backgroundRepeat: 'no-repeat', backgroundPositionX: 'center' }}>
-            {rows.map((row) => (
-              <TableRow
-                key={row.material}
-                sx={{
-                  '&:last-child td, &:last-child th': { border: 0 },
-                  background: `${row.material === 'total' && '#acacac'}`,
-                }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.name}
-                </TableCell>
-                <TableCell align="center" sx={{ fontWeight: '500' }}>
-                  {row.material === 'total' ? (
-                    row.count.toFixed(2)
-                  ) : noUnitInput.includes(row.material) ? (
-                    '-'
-                  ) : (
-                    <input
-                      type="string"
-                      name={`${row.material}-count`}
-                      onChange={(event) =>
-                        !isNaN(Number(event.target.value.replace(',', '.'))) ? setInputValue(row.material, event.target.value) : setInputValue(row.material, (event.target.value = ''))
-                      }
-                    />
-                  )}
-                </TableCell>
-                <TableCell align="center" sx={{ fontWeight: '500' }}>
-                  {[...noWeightInput, 'total'].includes(row.material) ? (
-                    row.weight.toFixed(2)
-                  ) : (
-                    <input
-                      type="string"
-                      name={`${row.material}-weight`}
-                      onChange={(event) =>
-                        !isNaN(Number(event.target.value.replace(',', '.'))) ? setInputValue(row.material, event.target.value) : setInputValue(row.material, (event.target.value = ''))
-                      }
-                    />
-                  )}
-                </TableCell>
-                <TableCell align="center" sx={{ fontWeight: '500' }}>
-                  {row.bauxite === 0 ? row.bauxite : row.bauxite.toFixed(2)}
-                </TableCell>
-                <TableCell align="center" sx={{ fontWeight: '500' }}>
-                  {row.energy?.toFixed(2) ?? '-'}
-                </TableCell>
-                <TableCell align="center" sx={{ fontWeight: '500' }}>
-                  {(row.trees === 0 ? row.trees : row.trees?.toFixed(2)) ?? '-'}
-                </TableCell>
-                <TableCell align="center" sx={{ fontWeight: '500' }}>
-                  {row.carbon?.toFixed(2) ?? '-'}
-                </TableCell>
-                <TableCell align="center" sx={{ fontWeight: '500' }}>
-                  {row.water?.toFixed(2) ?? '-'}
-                </TableCell>
-                <TableCell align="center" sx={{ fontWeight: '500' }}>
-                  {row.sand?.toFixed(2) ?? '-'}
-                </TableCell>
-                <TableCell align="center" sx={{ fontWeight: '500' }}>
-                  {row.oil?.toFixed(2) ?? '-'}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <span style={{ fontSize: '14px' }}>OBS: Devido às mudanças da indústria e nos processos de produção, alguns valores estão sendo atualizados constantemente</span>
-    </>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }

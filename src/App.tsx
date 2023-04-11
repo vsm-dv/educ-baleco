@@ -2,6 +2,8 @@ import { Typography } from '@mui/material';
 import './App.css';
 import footerImg from './assets/Assinatura_H_Cor_PERIODO_ELEITORAL.png';
 import headerImg from './assets/educ_classroom_HEADER.png';
+import iconFb from './assets/icon-fb.svg';
+import iconIg from './assets/icon-ig.svg';
 import MainTable from './components/MainTable';
 
 function App() {
@@ -9,10 +11,19 @@ function App() {
     <>
       <header>
         <img src={headerImg} alt="" style={{ maxWidth: '100%', height: '200px' }} />
+
+        <div className="social-media-div">
+          <a href="https://www.facebook.com/projetoeducoficial">
+            <img src={iconFb} alt="icone-facebook" style={{ height: '25px' }} />
+          </a>
+          <a href="https://www.instagram.com/projetoeducoficial">
+            <img src={iconIg} alt="icone-instagram" style={{ height: '20.2px' }} />
+          </a>
+        </div>
       </header>
       <div className="App">
         <div className="description">
-          <Typography variant="h4" sx={{ marginBottom: '30px' }}>
+          <Typography variant="h4" sx={{ marginBottom: '30px', maxWidth: '90%' }}>
             Balanço Ecológico
           </Typography>
           <Typography color="inherit" variant="body1" textAlign="justify" sx={{ lineHeight: '26px', fontSize: '16px' }}>
@@ -34,7 +45,11 @@ function App() {
         <div className="tablesDiv">
           <MainTable />
         </div>
-        <div style={{ marginTop: '30px', width: '59%' }}>
+        <div style={{ width: '59%' }}>
+          <Typography sx={{ fontSize: '14px', marginBottom: '30px' }}>
+            OBS: Devido às mudanças da indústria e nos processos de produção, alguns valores estão sendo atualizados constantemente
+          </Typography>
+
           <Typography variant="body1" sx={{ marginBottom: '30px' }}>
             Tire um print e compartilhe o resultado do seu BALECO conosco através do nosso Instagram <a href="https://www.instagram.com/projetoeducoficial/">@projetoeducoficial</a>
           </Typography>
